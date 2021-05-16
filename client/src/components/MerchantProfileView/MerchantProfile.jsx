@@ -8,6 +8,27 @@ import { Image } from 'cloudinary-react'
 import styled, { css } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
+const Button = styled.button`
+position: relative;
+background-color: transparent;
+right: 119px;
+bottom: 30px;
+display: inline-grid;
+
+
+
+`
+const H33 = styled.div`
+color: ${props => props.theme.mode === 'dark' ? 'rgb(224, 217, 220)' : '#000'};
+
+
+text-align: center;
+`
+const H3 = styled.div`
+font-family: 'Londrina Solid',cursive;
+margin-top: 23px;
+
+`
 const H22 = styled.h1`
 
 margin-top: 15px;
@@ -81,6 +102,7 @@ background-color: ##f5abc9;
 font-size: 11.25px;
 `}
 `
+
 const H2 = styled.div`
 font-family: 'Ubuntu';
 text-align: center;
@@ -141,10 +163,10 @@ const Imager = styled.img`
 `
 
 const MerchantProfile = ({
-   merchant, user, 
-   userSubs, setUserSubs, 
-   merchData, setMerchData, 
-   openOrClosed, setOpenOrClosed, 
+   merchant, user,
+   userSubs, setUserSubs,
+   merchData, setMerchData,
+   openOrClosed, setOpenOrClosed,
    userData, setUserData,
    uploadPicWindow }) => {
   const [ locatePrimary, setLocatePrimary ] = useState(false);
@@ -236,18 +258,19 @@ const MerchantProfile = ({
         <ProfilePic>
           <Imager src={profilePic}></Imager>
         </ProfilePic>
-        
+
         {/* <Image
             cloudName="opsparkpopup"
             publicId={image.image}
             width="300"
             crop="scale"
           /> */}
-        <H2>{t("infoTxt")}</H2>
         <br/>
         <p>
           {merchant.info}
         </p>
+        <br/>
+        
       </div>
       { merchant.isOpen
         ?
@@ -304,29 +327,30 @@ const MerchantProfile = ({
       </div> :
       reviewView && !pictureFeedView ?
       <div>
-      <div>
-      <LeaveAReview>{t("leaveAReviewTxt")}:</LeaveAReview>
-        <form onSubmit={(e) => {
-          e.preventDefault();
 
-        }}>
-          <Input type="text" value={reviewText} onChange={(e)=>setReviewText(e.target.value)} maxlength="255"></Input>
-          <SubmitBtn onClick={submitReview}>{t("submitBtn")}</SubmitBtn>
-        </form>
-      </div>
       <div>
-        <Review>{t("reviewsTxt")}:</Review>
-        {reviews.map(review => <div key={review.id}>
+        <H22>{t("reviewsTxt")}</H22>
+        {reviews.map(review =>
+        <div key={review.id}>
           <p>
-            <b>{review.User.name}</b>: {review.message}
+            <H3>{review.User.name}</H3> <H33>{review.message}</H33>
             {
               review.User.id === user.id
-              ? (<button onClick={() => deleteReview(review)}><small>x</small></button>)
+              ? (<Button onClick={() => deleteReview(review)}>x</Button>)
               : null
             }
-
           </p>
         </div>)}
+        <div>
+          <LeaveAReview>{t("leaveAReviewTxt")}:</LeaveAReview>
+           <form onSubmit={(e) => {
+              e.preventDefault();
+
+            }}>
+              <Input type="text" value={reviewText} onChange={(e)=>setReviewText(e.target.value)} maxlength="255"></Input>
+              <SubmitBtn onClick={submitReview}>{t("submitBtn")}</SubmitBtn>
+          </form>
+        </div>
       </div>
     </div>
       :

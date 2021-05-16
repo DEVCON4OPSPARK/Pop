@@ -62,7 +62,7 @@
 	"Artandcraftstxt" : "Artes/Manualidades",
 	"markettxt" : "Tiendita", 
 	"controlpaneltxt" : "Panel de control",
-	"uploadPhotoBtn" : "Subir foto",
+	"uploadPhotoBtn" : "Subir",
 	"closeBtn" : "cerrar",
 	"noAdressTxt" : "Sin dirección", 
 	"addOwnerTxt" : "agregar propietario",
@@ -75,8 +75,9 @@
 	"cancel?" : "Cancelar?",
 	"loginBtn" : "Entrar", 
 	"choosefileBtn" : "Elija el archivo", 
-	"upoadTxt" : "Subir",
+	"upoadTxt" : "Subir foto",
 	"close2" : "Cierra",
-	"toSeelocTxt" : "para ver tu ubicación en el mapa"
+	"toSeelocTxt" : "para ver tu ubicación en el mapa",
+	"uploadFotoBtn" : "Editar fotos"
 	
 }

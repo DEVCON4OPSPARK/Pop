@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
+const Img = styled.img`
+width: 25%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 3px;
+`
+
 const H2 = styled.h2`
   color: #f5abc9;
 
@@ -17,6 +25,9 @@ const Window = ({ merchant, selectMerchant }) => {
     <div>
       <span></span>
       <h1>{merchant.name}</h1>
+      <Img 
+        src={merchant.picture}
+      />
       <Link to='/profile'>
         <button onClick={() => {
           selectMerchant(merchant)

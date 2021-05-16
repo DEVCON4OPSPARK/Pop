@@ -72,9 +72,6 @@ const ToggleOpenClose = ({ merchant, setOpenOrClosed,
 	const { t } = useTranslation()
 
 	const initiate = () => {
-		console.log('hello initiate');
-		console.log(merchant);
-		console.log(merchant.isOpen);
 		merchant.isOpen ? setToggled(true) : setToggled(false);
 	};
 
